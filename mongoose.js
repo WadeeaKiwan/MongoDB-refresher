@@ -16,7 +16,11 @@ const createProduct = async (req, res, next) => {
     price: req.body.price
   });
 
+  console.log(createdProduct); // _id is created automatically while creating the document and before saving it.
+
   const result = await createdProduct.save();
+  console.log(typeof createdProduct.id); // Converted to a string
+  console.log(typeof createdProduct._id); // object
 
   res.json(result);
 };
